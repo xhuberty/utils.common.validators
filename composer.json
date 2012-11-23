@@ -1,4 +1,4 @@
-{
+﻿{
     "name": "mouf/utils.common.validators",
     "description": "This package contains typical validators to be used in your application. A validator is a class that decides whether a string is valid or not. For instance, you could use an EmailValidator to validate that a string is a mail, etc...",
     "keywords": ["utils", "validtors"],
@@ -7,7 +7,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "David N�grier",
+            "name": "David Négrier",
             "email": "d.negrier@thecodingmachine.com",
             "homepage": "http://mouf-php.com"
         }
