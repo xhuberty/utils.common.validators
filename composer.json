@@ -1,5 +1,5 @@
 ﻿{
-    "name": "mouf/utils.common.validators",
+   "name": "mouf/utils.common.validators",
     "description": "This package contains typical validators to be used in your application. A validator is a class that decides whether a string is valid or not. For instance, you could use an EmailValidator to validate that a string is a mail, etc...",
     "keywords": ["utils", "validtors"],
     "homepage": "https://github.com/thecodingmachine/utils.common.validators",
