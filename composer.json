@@ -17,18 +17,18 @@
     	"mouf/utils.i18n.fine": ">=3.0-dev,<4.0",
     },
     "autoload": {
-        "psr-0": {
+            "psr-0": {
             "Mouf": "src/"
-        }
+                    }
     },
     "minimum-stability": "dev",
     "extra": {
-	     "mouf": {
+    	"mouf": {
 			"install": [
-			{
-				"type": "file",
-	    		"url": "validatorsInstall.php"
-			}
+				{
+					"type": "file",
+					"url": "validatorsInstall.php"
+				}
 			]
 		}
     }
