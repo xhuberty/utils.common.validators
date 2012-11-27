@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__."/../../../autoload.php";
 use Mouf\Actions\InstallUtils;
 use Mouf\MoufManager;
 
@@ -9,11 +9,11 @@ InstallUtils::init(InstallUtils::$INIT_APP);
 // Let's create the instance
 $moufManager = MoufManager::getMoufManager();
 if (!$moufManager->instanceExists("validatorsTranslateService")) {
-	$moufManager->declareComponent("validatorsTranslateService", "FinePHPArrayTranslationService");
-	$moufManager->setParameter("validatorsTranslateService", "i18nMessagePath", "plugins/utils/common/validators/2.0/resources/");
+	$moufManager->declareComponent("validatorsTranslateService", "Mouf\\Utils\\I18n\Fine\\Translate;FinePHPArrayTranslationService");
+	$moufManager->setParameter("validatorsTranslateService", "i18nMessagePath", "vendor/mouf/utils.i18n.fine/resources/");
 	
 	if (!$moufManager->instanceExists("validatorsBrowserLanguageDetection")) {
-		$moufManager->declareComponent("validatorsBrowserLanguageDetection", "BrowserLanguageDetection");
+		$moufManager->declareComponent("validatorsBrowserLanguageDetection", "Mouf\\Utils\\I18n\\Fine\\Language\\BrowserLanguageDetection");
 	}
 	
 	$moufManager->bindComponentsViaSetter("validatorsTranslateService", "setLanguageDetection", "validatorsBrowserLanguageDetection");
