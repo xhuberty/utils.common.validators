@@ -27,7 +27,7 @@
 			"install": [
 				{
 					"type": "file",
-					"url": "validatorsInstall.php"
+					"file": "src/validatorsInstall.php"
 				}
 			]
 		}
