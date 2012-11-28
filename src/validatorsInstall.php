@@ -21,10 +21,10 @@ if (!$moufManager->instanceExists("validatorsTranslateService")) {
 
 //Let's automatically create validators for the components that are not parametized (eg : don't create a MinMaxRangeValidator)...
 $classes = array(
-		"EmailValidator",
-		'NumericValidator{"allowDecimals":true}',
-		"RequiredValidator",
-		'URLValidator{"allowFtp":true, "allowHttps":true}'
+		"Mouf\\Utils\\Common\\Validators\\EmailValidator",
+		'Mouf\\Utils\\Common\\Validators\\NumericValidator{"allowDecimals":true}',
+		"Mouf\\Utils\\Common\\Validators\\RequiredValidator",
+		'Mouf\\Utils\\Common\\Validators\\URLValidator{"allowFtp":true, "allowHttps":true}'
 );
 
 InstallUtils::massCreate($classes, $moufManager);
