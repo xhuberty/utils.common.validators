@@ -6,7 +6,7 @@ namespace Mouf\Utils\Common\Validators;
  *  - a js validation script (function using [value] and [message] parameters), 
  *  - an error message that will be used in case of validation error 
  */
-interface JsValidatorInterface{
+interface JsValidatorInterface {
 	
 	/**
 	 * The Javascript validation message : function(value, element){...}
