@@ -10,4 +10,5 @@ $msg['validate.numeric']="Invalid value, this should be a number";
 $msg['validate.integer']="Invalid value, this should be an integer";
 $msg['validate.required']="This value cannot be empty";
 $msg['validate.url']="Invalid URL";
+$msg['validate.gross-keywords']="The text can not contain any banned words";
 ?>
