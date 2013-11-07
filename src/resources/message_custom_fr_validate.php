@@ -10,4 +10,5 @@ $msg['validate.numeric']="Veuillez saisir un nombre";
 $msg['validate.integer']="Veuillez saisir un nombre entier";
 $msg['validate.required']="Cette valeur ne peut pas être vide";
 $msg['validate.url']="URL invalide";
+$msg['validate.gross-keywords']="Le text ne peut contenir des mots bannis";
 ?>
