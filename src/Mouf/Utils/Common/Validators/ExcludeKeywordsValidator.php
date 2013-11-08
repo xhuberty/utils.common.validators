@@ -45,6 +45,12 @@ class ExcludeKeywordsValidator implements ValidatorInterface {
 				}
 			}
 		}
+
+		if(!empty($this->banned_words)){
+			return false;
+		}else{
+			return true;
+		}
 	}
 	
 	/**
