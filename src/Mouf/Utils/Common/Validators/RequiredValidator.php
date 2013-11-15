@@ -12,7 +12,7 @@ class RequiredValidator extends AbstractValidator implements JsValidatorInterfac
 	 * @see PhpValidatorInterface::validate()
 	 */
 	function doValidate($value){
-		return !empty($value) || $value == "0" || $value == 0;
+		return !empty($value) || $value === "0" || $value === 0;
 	}
 
 	/**
