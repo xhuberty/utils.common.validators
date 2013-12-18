@@ -31,7 +31,7 @@ class ExcludeKeywordsValidator implements ValidatorInterface {
 		if(is_array($val_excludes)){
 			//Case the value interface return an array
 			foreach ($val_excludes as $exclud){
-				if (strpos($value, $exclud) !== false) {
+				if(preg_match_all("/\b".$exclud."\b/i",$value)){
 					$this->banned_words[] = $exclud;
 				}
 			}
@@ -40,7 +40,7 @@ class ExcludeKeywordsValidator implements ValidatorInterface {
 			//Case the value interface return a string
 			$array_excludes = explode(',', $val_excludes);
 			foreach ($array_excludes as $exclud){
-				if (strpos($value, $exclud) !== false) {
+				if(preg_match_all("/\b".$exclud."\b/i",$value)){
 					$this->banned_words[] = $exclud;
 				}
 			}
