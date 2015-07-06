@@ -57,11 +57,10 @@ class ExcludeKeywordsValidator implements ValidatorInterface {
 	 * @return string
 	 */
 	public function getErrorMessage(){
-		return iMsg('validate.gross-keywords');
+		return ValidatorUtils::translate('validate.gross-keywords');
 	}
 	
 	public function getBannedWords(){
-		error_log($this->banned_words);
 		$html = '';
 		foreach ($this->banned_words as $word){
 			$html .= (strlen($html) == 0) ? $word : ', '.$word;

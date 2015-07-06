@@ -14,11 +14,10 @@ class ValidatorUtils {
 	 * 
 	 * @param string $msg
 	 */
-	public static function translate($msg) {
-		$translationService = MoufManager::getMoufManager()->getInstance("validatorsTranslateService");
-		/* @var $translationService FinePHPArrayTranslationService */
-		
-		return call_user_func_array(array($translationService, "getTranslation"), func_get_args());
+	public static function translate($msg, array $params = array()) {
+		$translationService = MoufManager::getMoufManager()->getInstance("defaultTranslationService");
+
+        return $translationService->getTranslation($msg, $params);
 	}
 }
 ?>

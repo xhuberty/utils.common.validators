@@ -9,8 +9,15 @@ InstallUtils::init(InstallUtils::$INIT_APP);
 // Let's create the instance
 $moufManager = MoufManager::getMoufManager();
 if (!$moufManager->instanceExists("validatorsTranslateService")) {
-	$moufManager->declareComponent("validatorsTranslateService", "Mouf\\Utils\\I18n\Fine\\Translate\\FinePHPArrayTranslationService");
+	$moufManager->declareComponent("validatorsTranslateService", "Mouf\\Utils\\I18n\Fine\\Translator\\FileTranslator");
 	$moufManager->setParameter("validatorsTranslateService", "i18nMessagePath", "vendor/mouf/utils.common.validators/src/resources/");
+
+    if ($moufManager->instanceExists("defaultTranslationService")) {
+        $defaultTranslationService = $moufManager->getInstanceDescriptor("defaultTranslationService");
+        $values = $defaultTranslationService->getConstructorArgumentProperty('translators')->getValue();
+        $values[] = $moufManager->getInstanceDescriptor("validatorsTranslateService");
+        $defaultTranslationService->getConstructorArgumentProperty('translators')->setValue($values);
+    }
 	
 	if (!$moufManager->instanceExists("validatorsBrowserLanguageDetection")) {
 		$moufManager->declareComponent("validatorsBrowserLanguageDetection", "Mouf\\Utils\\I18n\\Fine\\Language\\BrowserLanguageDetection");
