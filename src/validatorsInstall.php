@@ -9,8 +9,8 @@ InstallUtils::init(InstallUtils::$INIT_APP);
 // Let's create the instance
 $moufManager = MoufManager::getMoufManager();
 if (!$moufManager->instanceExists("validatorsTranslateService")) {
-	$moufManager->declareComponent("validatorsTranslateService", "Mouf\\Utils\\I18n\Fine\\Translator\\FileTranslator");
-	$moufManager->setParameter("validatorsTranslateService", "i18nMessagePath", "vendor/mouf/utils.common.validators/src/resources/");
+    $validatorsTranslateService = InstallUtils::getOrCreateInstance('validatorsTranslateService', "Mouf\\Utils\\I18n\Fine\\Translator\\FileTranslator", $moufManager);
+    $validatorsTranslateService->getConstructorArgumentProperty("i18nMessagePath")->setValue("vendor/mouf/utils.common.validators/src/resources/");
 
     if ($moufManager->instanceExists("defaultTranslationService")) {
         $defaultTranslationService = $moufManager->getInstanceDescriptor("defaultTranslationService");
@@ -18,12 +18,10 @@ if (!$moufManager->instanceExists("validatorsTranslateService")) {
         $values[] = $moufManager->getInstanceDescriptor("validatorsTranslateService");
         $defaultTranslationService->getConstructorArgumentProperty('translators')->setValue($values);
     }
-	
-	if (!$moufManager->instanceExists("validatorsBrowserLanguageDetection")) {
-		$moufManager->declareComponent("validatorsBrowserLanguageDetection", "Mouf\\Utils\\I18n\\Fine\\Language\\BrowserLanguageDetection");
-	}
-	
-	$moufManager->bindComponentsViaSetter("validatorsTranslateService", "setLanguageDetection", "validatorsBrowserLanguageDetection");
+
+    $validatorsBrowserLanguageDetection = InstallUtils::getOrCreateInstance('validatorsBrowserLanguageDetection', "Mouf\\Utils\\I18n\\Fine\\Language\\BrowserLanguageDetection", $moufManager);
+
+    $validatorsTranslateService->getConstructorArgumentProperty("languageDetection")->setValue($validatorsBrowserLanguageDetection);
 }
 
 //Let's automatically create validators for the components that are not parametized (eg : don't create a MinMaxRangeValidator)...
